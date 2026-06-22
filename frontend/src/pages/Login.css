@@ -1,0 +1,23 @@
+.login-container {
+  max-width: 420px;
+}
+
+.login-form {
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin-top: 24px;
+}
+
+.login-error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.login-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
