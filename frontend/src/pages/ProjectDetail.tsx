@@ -17,14 +17,26 @@ function ProjectDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/projects/${id}`)
+    fetch(`${import.meta.env.BASE_URL}api/projects/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           setProject(data.data);
         }
       })
-      .catch((err) => console.error("加载项目失败:", err))
+      .catch(() => {
+        // 静态部署时无后端，从本地 JSON 查找对应项目
+        fetch(`${import.meta.env.BASE_URL}projects.json`)
+          .then((res) => res.json())
+          .then((data) => {
+            const found = data.find(
+              (p: Project) => p.id === Number(id)
+            );
+            if (found) setProject(found);
+          })
+          .catch((err) => console.error("加载项目失败:", err))
+          .finally(() => setLoading(false));
+      })
       .finally(() => setLoading(false));
   }, [id]);
 
@@ -59,7 +71,7 @@ function ProjectDetail() {
         </Link>
         <div className="project-detail">
           <div className="project-detail-image">
-            <img src={project.image} alt={project.title} />
+            <img src={`${import.meta.env.BASE_URL}${project.image}`} alt={project.title} />
           </div>
           <div className="project-detail-info">
             <h1 className="page-title">{project.title}</h1>

@@ -7,7 +7,7 @@ function About() {
         <h1 className="page-title">关于我</h1>
         <div className="about-grid">
           <div className="about-photo">
-            <img src="images/portrait.jpg" alt="个人照片" className="about-img" />
+            <img src={`${import.meta.env.BASE_URL}images/portrait.jpg`} alt="个人照片" className="about-img" />
           </div>
           <div className="about-content">
             <p>

@@ -14,7 +14,7 @@ function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    fetch("/api/projects")
+    fetch(`${import.meta.env.BASE_URL}api/projects`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -23,7 +23,7 @@ function Projects() {
       })
       .catch(() => {
         // 静态部署时无后端，回退到本地数据
-        fetch("projects.json")
+        fetch(`${import.meta.env.BASE_URL}projects.json`)
           .then((res) => res.json())
           .then((data) => setProjects(data))
           .catch((err) => console.error("加载项目失败:", err));
@@ -42,7 +42,7 @@ function Projects() {
               className="project-card"
             >
               <div className="project-thumb">
-                <img src={project.image} alt={project.title} />
+                <img src={`${import.meta.env.BASE_URL}${project.image}`} alt={project.title} />
               </div>
               <h3>{project.title}</h3>
               <p>{project.description}</p>

@@ -21,7 +21,7 @@ function Home() {
         </div>
       </div>
       <div className="hero-photo" aria-label="个人照片">
-        <img src="images/portrait.jpg" alt="个人照片" />
+        <img src={`${import.meta.env.BASE_URL}images/portrait.jpg`} alt="个人照片" />
       </div>
     </section>
   );
