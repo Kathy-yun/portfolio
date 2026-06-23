@@ -1,3 +1,4 @@
+import "dotenv/config";
 import Fastify from "fastify";
 import jwt from "jsonwebtoken";
 import { apiRoutes } from "./routes/api.js";
