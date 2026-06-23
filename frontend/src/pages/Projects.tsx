@@ -23,7 +23,7 @@ function Projects() {
       })
       .catch(() => {
         // 静态部署时无后端，回退到本地数据
-        fetch("/projects.json")
+        fetch("projects.json")
           .then((res) => res.json())
           .then((data) => setProjects(data))
           .catch((err) => console.error("加载项目失败:", err));

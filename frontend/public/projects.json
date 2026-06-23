@@ -3,7 +3,7 @@
     "id": 1,
     "title": "项目名称一",
     "description": "简短描述这个项目的内容、你使用的技术栈以及你在其中承担的角色。",
-    "image": "/images/project1.jpg",
+    "image": "images/project1.jpg",
     "tags": ["HTML", "CSS", "JavaScript"],
     "link": ""
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "title": "项目名称二",
     "description": "简短描述这个项目的内容、你使用的技术栈以及你在其中承担的角色。",
-    "image": "/images/project2.jpg",
+    "image": "images/project2.jpg",
     "tags": ["React", "Node.js"],
     "link": ""
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "title": "项目名称三",
     "description": "简短描述这个项目的内容、你使用的技术栈以及你在其中承担的角色。",
-    "image": "/images/project3.jpg",
+    "image": "images/project3.jpg",
     "tags": ["Vue", "Firebase"],
     "link": ""
   }
