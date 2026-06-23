@@ -139,7 +139,7 @@ pnpm build
 # 登录
 curl -X POST http://localhost:3000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"admin123"}'
+  -d '{"username":"<你的用户名>","password":"<你的密码>"}'
 
 # 创建项目（需要 token）
 curl -X POST http://localhost:3000/api/projects \
@@ -155,13 +155,13 @@ curl -X POST http://localhost:3000/api/projects \
 ```env
 DATABASE_URL="file:./dev.db"
 
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=admin123
+ADMIN_USERNAME=<你的用户名>
+ADMIN_PASSWORD=<你的密码>
 
-JWT_SECRET=your-secret-key-here
+JWT_SECRET=<你的密钥>
 ```
 
-> ⚠️ 生产环境请务必修改管理员密码和 JWT 密钥。
+> 生产环境必须设置强密码和随机 JWT 密钥，切勿使用默认值。
 
 ## 开发规范
 

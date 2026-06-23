@@ -1,9 +1,15 @@
 import type { FastifyInstance } from "fastify";
 import jwt from "jsonwebtoken";
 
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
-const JWT_SECRET = process.env.JWT_SECRET || "portfolio-secret";
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!ADMIN_USERNAME || !ADMIN_PASSWORD || !JWT_SECRET) {
+  throw new Error(
+    "缺少必需的环境变量：ADMIN_USERNAME、ADMIN_PASSWORD、JWT_SECRET"
+  );
+}
 
 export async function authRoutes(app: FastifyInstance) {
   // 登录

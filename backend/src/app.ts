@@ -3,7 +3,11 @@ import jwt from "jsonwebtoken";
 import { apiRoutes } from "./routes/api.js";
 import { authRoutes } from "./routes/auth.js";
 
-const JWT_SECRET = process.env.JWT_SECRET || "portfolio-secret";
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error("缺少必需的环境变量：JWT_SECRET");
+}
 
 const app = Fastify({ logger: true });
 
